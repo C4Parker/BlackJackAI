@@ -7,7 +7,9 @@ class Shoe:
         self.deck = deck
         self.shoe = deck * shoe_size
         
-    def shuffle(self):
+    def shuffle_shoe(self):
+        self.shoe = self.shoe + self.burn
+        self.burn = []
         shuffle(self.shoe)
         
     def draw_card(self):
@@ -15,7 +17,3 @@ class Shoe:
         self.shoe[:] = self.shoe[1:]
         self.burn[:] = self.burn+[card]
         return card
-        
-        
-d = Shoe()
-d.shuffle()
