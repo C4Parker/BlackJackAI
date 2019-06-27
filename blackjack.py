@@ -49,6 +49,13 @@ class Hand:
         pretty_string += "\tScore: " + str(self.evaluate_score())
         print pretty_string
         
+    def pretty_string(self):
+        pretty_string = ""
+        for card in self.cards:
+            pretty_string += card + " "
+        pretty_string += "\tScore: " + str(self.evaluate_score())
+        return pretty_string
+        
         
 class Dealer:
     
@@ -65,8 +72,6 @@ def compare_hands(hand_a, hand_b):
     b_score = hand_b.evaluate_score()
     a_bust = a_score > 21
     b_bust = b_score > 21
-    if (a_bust and b_bust):
-        return 0
     if (a_bust):
         return 1
     if (b_bust):
