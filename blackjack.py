@@ -67,13 +67,13 @@ class Dealer:
         if(self.limit > self.hand.evaluate_score()):
             self.hand.draw_card(deck)
         
-def compare_hands(hand_a, hand_b):
-    a_score = hand_a.evaluate_score()
-    b_score = hand_b.evaluate_score()
-    a_bust = a_score > 21
-    b_bust = b_score > 21
-    if (a_bust):
+def compare_hands(player, dealer):
+    player_score = player.evaluate_score()
+    dealer_score = dealer.evaluate_score()
+    player_bust = player_score > 21
+    dealer_bust = dealer_score > 21
+    if (player_bust):
         return 1
-    if (b_bust):
+    if (dealer_bust):
         return -1
-    return hand_b.evaluate_score() - hand_a.evaluate_score()
+    return dealer.evaluate_score() - player.evaluate_score()
