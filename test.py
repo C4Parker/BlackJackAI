@@ -21,3 +21,5 @@ dealer = Dealer()
 while(dealer.hand.evaluate_score() < dealer.limit):
     dealer.play_turn(shoe)
     dealer.hand.pretty_print()
+    
+print compare_hands(dealer.hand, player)
