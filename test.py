@@ -1,13 +1,23 @@
 from blackjack import *
 
-d = Shoe()
-for i in range (1,10):
-    d.draw_card()
-    
-print d.shoe
-print d.burn
 
-d.shuffle_shoe()
+shoe = Shoe()
+shoe.shuffle_shoe()
 
-print d.shoe
-print d.burn
+player = Hand()
+player.draw_card(shoe)
+player.draw_card(shoe)
+
+print player.cards
+print shoe.burn
+print shoe.shoe
+
+player.pretty_print()
+
+print player.is_blackjack()
+
+dealer = Dealer()
+
+while(dealer.hand.evaluate_score() < dealer.limit):
+    dealer.play_turn(shoe)
+    dealer.hand.pretty_print()
